@@ -1,0 +1,11 @@
+<h1>{{ user.id }}</h1>
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+<form method="post" action="{% url 'userregister:update' %}">
+{% csrf_token %}
+	<input type="hidden" id="userid" name="userid" value="{{ user.id }}"/>
+	<input type="text" id="username" name="username" value="{{ user.username }}"/><br/>
+	<input type="password" id="password" name="password" value="{{ user.password}}"/><br/>
+	<input type="text" id="question" name="question" value="{{ user.secr_question }}"/><br/>
+	<input type="text" id="answer" name="answer" value="{{ user.secr_answer }}"/><br/>
+	<input type="submit" id="update" value="Actualizar"/>
+</form>

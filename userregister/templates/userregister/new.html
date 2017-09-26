@@ -1,0 +1,8 @@
+<form method="post" action="{% url 'userregister:save' %}">
+{% csrf_token %}
+	nombre de usuario: <input type="text" id="username" name="username"/><br/>
+	clave: <input type="password" id="password" name="password"/><br/>
+	pregunta secreta: <input type="text" id="question" name="question"/><br/>
+	respuesta secreta: <input type="text" id="answer" name="answer"/><br/>
+	<input type="submit" id="save" value="Guardar"/>
+</form>

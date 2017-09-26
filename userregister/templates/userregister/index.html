@@ -1,0 +1,20 @@
+<a href="{% url 'userregister:new' %}">Nuevo</a>
+{% if user_list %}
+	<table>
+		<thead>
+			<td><b>Nombre de usuario</b></td><td><b>Pregunta secreta</b></td><td><b>Acciones</b></td>
+		</thead>
+		<tbody>
+		{% for user in user_list %}
+			<tr>
+				<td>{{ user.username }}</td>
+				<td>{{ user.secr_question }}</td>
+				<td><a href="{% url 'userregister:detail' user.id %}">Editar</a>&nbsp;
+					<a href="{% url 'userregister:delete' user.id %}">Borrar</a></td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+{% else %}
+<p>No users in database </p>
+{% endif %}
